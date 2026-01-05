@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>B2B Automations • Workflow Systems</title>
+  <meta name="description" content="We help ops-heavy businesses reduce missed follow-ups, improve response times, and gain visibility with lightweight workflow systems." />
+  <meta name="theme-color" content="#0b1220" />
+  <link rel="canonical" href="./b2b-automations.html" />
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0;padding:32px;line-height:1.5}
+    a{color:inherit}
+  </style>
+</head>
+
+<body>
+  <p>
+    Redirecting to the site… If you are not redirected,
+    <a id="fallbackLink" href="./b2b-automations.html">click here</a>.
+  </p>
+
+  <script>
+    (async function () {
+      const MAIN = "./b2b-automations.html";
+      const MAINT = "./maintenance.html";
+
+      try {
+        const res = await fetch(MAIN, { method: "HEAD", cache: "no-store" });
+        const target = res.ok ? MAIN : MAINT;
+        document.getElementById("fallbackLink").href = target;
+        window.location.replace(target);
+      } catch (e) {
+        document.getElementById("fallbackLink").href = MAINT;
+        window.location.replace(MAINT);
+      }
+    })();
+  </script>
+
+  <noscript>
+    <meta http-equiv="refresh" content="0; url=./maintenance.html" />
+    <p>JavaScript is disabled. <a href="./maintenance.html">Go to maintenance</a>.</p>
+  </noscript>
+</body>
+</html>
