@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Real Estate Automation | B2B Automations</title>
+  <meta name="theme-color" content="#0b1220" />
+  <link rel="icon" href="assets/logo/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/logo/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/logo/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/logo/apple-touch-icon.png" />
+  <style>
+    :root{
+      --bg:#050816;
+      --panel:rgba(124,92,255,.10);
+      --panel2:rgba(46,230,166,.08);
+      --text:#eef3ff;
+      --muted:#c4d1ff;
+      --muted2:#a9b7ff;
+      --line:rgba(170,210,255,.14);
+      --brand:#7c5cff;
+      --brand2:#2ee6a6;
+      --shadow:0 18px 70px rgba(0,0,0,.35);
+      --radius:16px;
+      --radius2:22px;
+      --max:1100px;
+      --navH:88px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      padding-top:var(--navH);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:none;
+      line-height:1.5;
+    }
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      pointer-events:none;
+      background:
+        radial-gradient(1400px 1000px at 18% 12%, rgba(124,92,255,.30), transparent 62%),
+        radial-gradient(1100px 900px at 84% 18%, rgba(88,160,255,.24), transparent 62%),
+        radial-gradient(1200px 1000px at 55% 92%, rgba(46,230,166,.22), transparent 64%),
+        linear-gradient(180deg, #040616 0%, #05091a 55%, #040616 100%);
+    }
+    html{background:#040616}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+    .nav{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      z-index:999;
+      backdrop-filter:saturate(1.4) blur(12px);
+      -webkit-backdrop-filter:saturate(1.4) blur(12px);
+      background:linear-gradient(135deg, rgba(124,92,255,.16), rgba(88,160,255,.12), rgba(46,230,166,.10));
+      transform:translateZ(0);
+    }
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:700;
+      letter-spacing:.2px;
+    }
+    .brand small{display:block;color:var(--muted2);font-weight:600;margin-top:-2px}
+    .logo{
+      width:34px;
+      height:34px;
+      border-radius:10px;
+      overflow:hidden;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .logo img{width:100%;height:100%;display:block;object-fit:cover}
+    .links{display:flex;gap:18px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+    .links a{
+      font-weight:600;
+      color:var(--muted);
+      padding:8px 10px;
+      border-radius:10px;
+    }
+    .links a:hover{background:rgba(255,255,255,.06);color:var(--text)}
+    .cta{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:10px 14px;border-radius:12px;
+      background:linear-gradient(135deg, rgba(124,92,255,1), rgba(46,230,166,1));
+      color:#07101c;font-weight:800;
+      box-shadow:0 14px 50px rgba(124,92,255,.18);
+    }
+    .cta:hover{filter:brightness(1.06)}
+    .section{
+      padding:28px 0;
+      position:relative;
+    }
+    .card{
+      background:linear-gradient(135deg, rgba(124,92,255,.10), rgba(88,160,255,.07), rgba(46,230,166,.06));
+      border:1px solid var(--line);
+      border-radius:var(--radius2);
+      box-shadow:var(--shadow);
+    }
+    .page{padding:28px}
+    h1{margin:0 0 10px;font-size:34px;letter-spacing:-.6px;line-height:1.1}
+    .lead{margin:0;color:var(--muted);font-size:16px;max-width:85ch}
+    .bullets{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+    .bullets li{
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:var(--muted);
+      font-weight:650;
+    }
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:12px 16px;border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      color:var(--text);font-weight:800;
+    }
+    .btn:hover{background:rgba(255,255,255,.06)}
+    .btn.primary{
+      border:none;
+      background:linear-gradient(135deg, rgba(124,92,255,1), rgba(46,230,166,1));
+      color:#07101c;
+    }
+    .btn.primary:hover{filter:brightness(1.05)}
+    .footer{
+      padding:36px 0 32px;
+      color:var(--muted2);
+      border-top:1px solid var(--line);
+      margin-top:36px;
+    }
+    .footer-bottom{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+    @media (max-width: 720px){
+      h1{font-size:30px}
+      .links a{display:none}
+      .links a.cta{display:inline-flex}
+      .footer-bottom{flex-direction:column;align-items:flex-start}
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap">
+      <div class="nav-inner">
+        <a class="brand" href="b2b-automations.html#top" aria-label="Home">
+          <span class="logo" aria-hidden="true">
+            <img src="assets/logo/logo.png" alt="B2B Automation Logo" onerror="this.onerror=null; this.src='assets/logo/Logo.png';" />
+          </span>
+          <span>
+            B2B Automations
+            <small>WorkFlow Systems</small>
+          </span>
+        </a>
+        <nav class="links" aria-label="Primary">
+          <a href="b2b-automations.html#about">About</a>
+          <a href="b2b-automations.html#founder">Founder</a>
+          <a href="b2b-automations.html#what-i-build">What we build</a>
+          <a href="b2b-automations.html#how">How it works</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="b2b-automations.html#industries">Who it’s for</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="wrap">
+        <div class="card page">
+          <h1>Real Estate Automation</h1>
+          <p class="lead">
+            Workflow systems built for real estate teams to capture every lead, enforce follow‑ups, and give owners full operational visibility.
+          </p>
+          <ul class="bullets">
+            <li>Lead capture from calls, SMS, and forms</li>
+            <li>Automated follow‑up reminders for agents</li>
+            <li>Site‑visit scheduling and tracking</li>
+            <li>Owner and management dashboards</li>
+          </ul>
+          <div class="actions">
+            <a class="btn primary" href="b2b-automations.html#contact">Talk to us</a>
+            <a class="btn" href="b2b-automations.html">Back to home</a>
+          </div>
+        </div>
+
+        <div class="footer">
+          <div class="footer-bottom">
+            <span>© <span id="yr"></span> B2B Automations • Workflow Systems.</span>
+            <span>All Rights Reserved.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("yr").textContent = new Date().getFullYear();
+    function syncNavHeight(){
+      const nav = document.querySelector('.nav');
+      if (!nav) return;
+      document.documentElement.style.setProperty('--navH', nav.offsetHeight + 'px');
+    }
+    syncNavHeight();
+    window.addEventListener('resize', syncNavHeight);
+  </script>
+</body>
+</html>
